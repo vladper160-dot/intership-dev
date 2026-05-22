@@ -3,6 +3,7 @@ import { DataTable } from '../DataTable/DataTable';
 import { Sidebar } from '../Sidebar/Sidebar';
 import Navbar from '../Navbar/Navbar';
 import { Secbar } from '../Secbar/secbar';
+import { TopCards } from '../Leaderboard/TopCards';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Navbar />
         <Secbar />
         <div className="main-container">
+          <TopCards data={data} />
           <DataTable data={data} />
         </div>
       </section>

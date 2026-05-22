@@ -1,0 +1,121 @@
+/* --- Hlavný kontajner pre všetkých 6 kariet --- */
+.top-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+/* --- Základný vzhľad karty --- */
+.top-card {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden; /* Dôležité aby hlavička nepretiekla cez zaoblené rohy */
+  font-family: sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Hlavička karty --- */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.trend-badge {
+  background-color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.trend-badge.positive { color: #10b981; } /* Zelená */
+.trend-badge.negative { color: #ef4444; } /* Červená */
+
+/* --- Telo karty (Fotka a meno) --- */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  flex-grow: 1;
+}
+
+.avatar-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.person-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
+  text-align: center;
+}
+
+/* --- Spodná časť (Dealy a Hodnota) --- */
+.card-footer {
+  display: flex;
+  border-top: 1px solid #eeeeee;
+}
+
+.stat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 4px;
+}
+
+.value-box {
+  flex: 1.5; /* Box pre peniaze je trošku širší */
+  border-left: 1px solid #eeeeee;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #888888;
+  margin-top: 2px;
+}
+
+/* ========================================= */
+/* DYNAMICKÉ FARBY PODĽA PORADIA (RANK 1-3)  */
+/* ========================================= */
+
+/* 1. Miesto - ZLATO */
+.rank-1 { border: 2px solid #eab308; }
+.rank-1 .card-header { background-color: #eab308; color: #ffffff; }
+.rank-1 .avatar-img { border: 3px solid #eab308; padding: 2px; }
+.rank-1 .trend-badge { color: #eab308; } /* Prepis zelenej farby v zlatej hlavičke, ak je kladná */
+
+/* 2. Miesto - STRIEBRO */
+.rank-2 { border: 2px solid #94a3b8; }
+.rank-2 .card-header { background-color: #94a3b8; color: #ffffff; }
+.rank-2 .avatar-img { border: 3px solid #94a3b8; padding: 2px; }
+
+/* 3. Miesto - BRONZ */
+.rank-3 { border: 2px solid #f59e0b; } /* Používam oranžovú ako bronzovú podľa obrázka */
+.rank-3 .card-header { background-color: #f59e0b; color: #ffffff; }
+.rank-3 .avatar-img { border: 3px solid #f59e0b; padding: 2px; }
+
+/* 4. až 6. Miesto - OSTATNÉ */
+.rank-other { border: 1px solid #e5e7eb; }
+.rank-other .card-header { background-color: #f9fafb; color: #6b7280; }
