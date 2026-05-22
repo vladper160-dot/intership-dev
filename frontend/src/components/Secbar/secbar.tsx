@@ -5,7 +5,8 @@ export function Secbar() {
 
     return (
         <section>
-            <button></button>
+            <button>but1</button>
+            <button>but2</button>
         </section>
     )
 }

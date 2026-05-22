@@ -11,12 +11,14 @@ function App() {
 
   return (
     <div className="app-container">
-      <Navbar />
-      <Secbar />
       <Sidebar />
-      <div className="main-container">
-        <DataTable data={data} />
-      </div>
+      <section style={{ display: 'flex', flexDirection: 'column' }}>
+        <Navbar />
+        <Secbar />
+        <div className="main-container">
+          <DataTable data={data} />
+        </div>
+      </section>
     </div>
   );
 }
