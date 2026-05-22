@@ -1,18 +1,18 @@
 import React from 'react';
 
-// Definícia typov pre TypeScript
 interface NavTabsProps {
   activeTab: string;
   setActiveTab: (id: string) => void;
 }
 
 const NavTabs = ({ activeTab, setActiveTab }: NavTabsProps) => {
+  // Odstránili sme "closable: true", už to nepotrebujeme
   const tabs = [
     { id: 'nastenka', label: 'Nástěnka' },
     { id: 'zaciname', label: 'Začínáme' },
     { id: 'leady', label: 'Leady' },
     { id: 'nastenka-leadu', label: 'Nástěnka leadů' },
-    { id: 'zebricek', label: 'Žebříček obchodníků', closable: true },
+    { id: 'zebricek', label: 'Žebříček obchodníků' },
     { id: 'stagnujici', label: 'Stagnující příležitosti' },
   ];
 
@@ -25,7 +25,22 @@ const NavTabs = ({ activeTab, setActiveTab }: NavTabsProps) => {
           onClick={() => setActiveTab(tab.id)}
         >
           {tab.label}
-          {tab.closable && <span className="close-icon">×</span>}
+          
+          {/* ZMENA TU: Krížik sa zobrazí IBA ak je záložka aktuálne vybraná */}
+          {activeTab === tab.id && (
+            <span 
+              className="close-icon"
+              onClick={(e) => {
+                e.stopPropagation(); // Zastaví prebublanie kliknutia na rodičovský div
+                
+                // Zatiaľ to len vypíše do konzoly. Neskôr tu s kolegom môžete 
+                // doprogramovať logiku, ktorá záložku úplne vymaže z poľa "tabs".
+                console.log(`Klikol si na zavretie záložky: ${tab.label}`);
+              }}
+            >
+              ×
+            </span>
+          )}
         </div>
       ))}
     </div>

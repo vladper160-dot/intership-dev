@@ -1,0 +1,129 @@
+/* --- Základné farby a premenné --- */
+:root {
+  --raynet-teal: #119ca6; /* Tyrkysová farba z obrázku */
+  --text-main: #333333;
+  --text-muted: #6b778c;
+  --bg-white: #ffffff;
+  --border-color: #e0e4e8;
+  --hover-bg: #f4f5f7;
+}
+
+/* --- Hlavný kontajner navigácie --- */
+.main-navbar {
+  display: flex;
+  justify-content: space-between; /* Rozdelí ľavú a pravú časť na kraje */
+  align-items: center;
+  height: 48px; /* Výška vrchnej lišty */
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- Ľavá časť: Záložky (Tabs) --- */
+.nav-tabs {
+  display: flex;
+  height: 100%;
+  gap: 4px;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0; /* Zaoblené horné rohy */
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-tab:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+}
+
+/* Aktívna záložka (napr. Žebříček obchodníků) */
+.nav-tab.active {
+  background-color: var(--raynet-teal);
+  color: var(--bg-white);
+}
+
+.nav-tab.active:hover {
+  background-color: #0e868f; /* Mierne tmavšia pri hoveri */
+}
+
+/* Krížik na zavretie záložky */
+.close-icon {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.close-icon:hover {
+  opacity: 1;
+}
+
+/* --- Pravá časť: Akcie a profil --- */
+.nav-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Medzera medzi ikonkami a profilom */
+}
+
+/* Ikonky (Zvonček, Tri bodky) */
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.icon-btn:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+}
+
+/* Profil používateľa */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.user-profile:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Krúžok s iniciálami */
+.avatar-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--raynet-teal);
+  color: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.user-name {
+  font-size: 14px;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+}
