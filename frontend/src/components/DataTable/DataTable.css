@@ -1,59 +1,145 @@
+/* --- Obal tabuľky --- */
 .data-table-container {
-  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Aby nám nepretiekli zaoblené rohy */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin-bottom: 32px;
 }
 
-.data-table-title {
-  color: #333;
-  margin-bottom: 30px;
-  font-size: 28px;
-}
-
+/* --- Samotná tabuľka --- */
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
 }
 
-.data-table thead {
-  background-color: #2c3e50;
-  color: white;
-}
-
+/* --- Hlavička (TH) --- */
 .data-table th {
-  padding: 15px;
-  text-align: left;
-  font-weight: 600;
-  border: none;
+  padding: 16px;
+  font-size: 11px;
+  color: #888888;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eeeeee;
+  letter-spacing: 0.5px;
 }
 
+/* --- Riadky a bunky (TR, TD) --- */
 .data-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #e0e0e0;
-  color: #555;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f4f5f7;
+  vertical-align: middle;
 }
 
+/* Jemný hover efekt na riadku (ukáže sa, keď prejdeš myšou) */
 .data-table tbody tr:hover {
-  background-color: #f0f0f0;
+  background-color: #fcfcfc;
 }
 
-.data-table tbody tr:last-child td {
+.data-table tr:last-child td {
   border-bottom: none;
 }
 
-.status {
-  color: #666;
-  padding: 20px;
-  text-align: center;
-  font-size: 16px;
+/* --- Zarovnanie stĺpcov --- */
+.data-table th, .data-table td { text-align: left; }
+.col-right { text-align: right !important; }
+.col-center { text-align: center !important; }
+
+/* --- Špecifické štýly buniek --- */
+.rank-cell {
+  color: #888888;
+  width: 40px;
 }
 
-.error {
-  color: #d32f2f;
-  padding: 15px;
-  background-color: #ffebee;
+.person-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.person-name {
+  font-weight: 600;
+  color: #333333;
+  font-size: 14px;
+}
+
+.bold-text {
+  font-weight: 600;
+  color: #333333;
+  font-size: 13px;
+}
+
+.muted-text {
+  color: #a0a0a0;
+  font-size: 11px;
+  margin-left: 2px;
+}
+
+/* --- Malý avatar v tabuľke (32x32) --- */
+.table-avatar-img,
+.table-avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.table-avatar-placeholder {
+  background-color: #e5f4f5;
+  color: #119ca6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* --- Trend Badge --- */
+.table-trend-badge {
+  display: inline-block;
+  padding: 4px 8px;
   border-radius: 4px;
-  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.table-trend-badge.positive {
+  background-color: #e6f6f4; /* bledozelená */
+  color: #10b981;
+}
+
+.table-trend-badge.negative {
+  background-color: #fce8e8; /* bledočervená */
+  color: #ef4444;
+}
+
+/* --- Progress Bar pre Podiel --- */
+.share-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.progress-bar-bg {
+  width: 64px;
+  height: 6px;
+  background-color: #eeeeee;
+  border-radius: 4px;
+  overflow: hidden; /* Dôležité pre odstrihnutie výplne */
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #119ca6; /* Raynet tyrkysová */
+  border-radius: 4px;
+}
+
+.share-text {
+  width: 36px;
+  color: #888888;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: right;
 }
