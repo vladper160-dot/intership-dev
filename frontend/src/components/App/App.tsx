@@ -1,6 +1,7 @@
 import { useFetchData } from '../../hooks/useFetchData';
 import { DataTable } from '../DataTable/DataTable';
 import { Sidebar } from '../Sidebar/Sidebar';
+import Navbar from '../../components/Navbar/Navbar';
 import './App.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <Navbar />
       <Sidebar />
       <div className="main-container">
         <DataTable data={data} />
