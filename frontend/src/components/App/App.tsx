@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="app-container">
       <Sidebar />
-      <section style={{ display: 'flex', flexDirection: 'column' }}>
+      <section style={{ display: 'flex', flexDirection: 'column' ,width: '100%'}}>
         <Navbar />
         <Secbar />
         <div className="main-container">
