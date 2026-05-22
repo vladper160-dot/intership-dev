@@ -14,7 +14,7 @@ export const transformApiDataToLeaderboard = (apiData: ApiBusinessCase[]): Sales
         value: 0,
         avatarUrl: businessCase.owner.photo?.uuid 
             ? `https://app.raynet.cz/api/v2/file/${businessCase.owner.photo.uuid}/content` 
-            : 'https://via.placeholder.com/60', // Zástupný obrázok ak nemá fotku
+            : null, // Zástupný obrázok ak nemá fotku
         trend: 0 
       };
     }

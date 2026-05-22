@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Salesperson } from '../../types/api';
 import './TopCards.css';
 
 interface TopCardsProps {
   data: Salesperson[];
 }
+
+// POMOCNÁ FUNKCIA: Vytiahne iniciály
+const getInitials = (name: string) => {
+  const parts = name.split(' ').filter(Boolean);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+  return name.substring(0, 2).toUpperCase();
+};
+
+// NOVÝ KOMPONENT: Avatar, ktorý sám zvláda chyby pri načítaní
+const AvatarWithFallback = ({ person }: { person: Salesperson }) => {
+  const [hasError, setHasError] = useState(false);
+
+  // Ak máme URL a zatiaľ nenastala chyba, skúsime načítať obrázok
+  if (person.avatarUrl && !hasError) {
+    return (
+      <img 
+        src={person.avatarUrl} 
+        alt={person.name} 
+        className="avatar-img" 
+        onError={() => setHasError(true)} // Ak zlyhá stiahnutie, prepneme hasError na true
+      />
+    );
+  }
+
+  // Ak URL neexistuje alebo obrázok zlyhal, ukážeme iniciály
+  return (
+    <div className="avatar-placeholder">
+      {getInitials(person.name)}
+    </div>
+  );
+};
 
 export const TopCards = ({ data }: TopCardsProps) => {
   const formatCurrency = (amount: number) => {
@@ -34,7 +67,9 @@ export const TopCards = ({ data }: TopCardsProps) => {
             </div>
 
             <div className="card-body">
-              <img src={person.avatarUrl} alt={person.name} className="avatar-img" />
+              {/* Použijeme náš nový, inteligentný Avatar */}
+              <AvatarWithFallback person={person} />
+              
               <h3 className="person-name">{person.name}</h3>
             </div>
 

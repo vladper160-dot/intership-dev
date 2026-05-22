@@ -19,5 +19,5 @@ export interface Salesperson {
   deals: number;
   value: number;
   trend: number;
-  avatarUrl: string;
+  avatarUrl: string | null;
 }
