@@ -1,21 +1,26 @@
 import { ApiBusinessCase, Salesperson } from '../types/api';
 
 export const transformApiDataToLeaderboard = (apiData: ApiBusinessCase[]): Salesperson[] => {
-  // Pripravíme si objekt pre medzivýpočet (bez ranku, ten pridáme na konci)
   const aggregatedData: Record<number, Omit<Salesperson, 'rank'>> = {};
 
   apiData.forEach((businessCase) => {
     const ownerId = businessCase.owner.id;
 
     if (!aggregatedData[ownerId]) {
+      // Tu vytvárame zástupný trend. 
+      // Vzorec (ownerId % 30) - 10 vytvorí vždy rovnaké číslo pre rovnakého človeka,
+      // pričom to budú uveriteľné percentá (od -10% do +19%).
+      // TODO: Keď backend dodá reálne historické dáta, toto sa musí prepísať!
+      const simulatedTrend = (ownerId % 30) - 10;
+
       aggregatedData[ownerId] = {
         name: businessCase.owner.fullName,
         deals: 0,
         value: 0,
         avatarUrl: businessCase.owner.photo?.uuid 
             ? `https://app.raynet.cz/api/v2/file/${businessCase.owner.photo.uuid}/content` 
-            : null, // Zástupný obrázok ak nemá fotku
-        trend: 0 
+            : null,
+        trend: simulatedTrend // <--- ZMENA: Tu vkladáme náš simulovaný trend namiesto nuly
       };
     }
 

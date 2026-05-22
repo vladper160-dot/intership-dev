@@ -5,5 +5,13 @@
 }
 
 .main-container {
+  /* Pridá odsadenie: 24px zhora/zdola a 32px zľava/sprava */
+  padding: 24px 32px; 
+  
+  /* Zabezpečí, že ak obsah pretečie, stránka sa bude dať scrollovať */
   flex: 1;
+  overflow-y: auto;
+  
+  /* (Voliteľné) Jemné sivé pozadie, aby biele karty pekne vynikli */
+  background-color: #f4f5f7;
 }
