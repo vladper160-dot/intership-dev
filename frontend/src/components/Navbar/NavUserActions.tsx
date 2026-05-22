@@ -1,17 +1,21 @@
 import React from 'react';
 
-const NavUserActions = ({ user }) => {
+// Definícia, ako vyzerá objekt "user"
+interface User {
+  name: string;
+  initials: string;
+}
+
+interface NavUserActionsProps {
+  user: User;
+}
+
+const NavUserActions = ({ user }: NavUserActionsProps) => {
   return (
     <div className="nav-user-actions">
-      {/* Tri bodky / Menu */}
       <button className="icon-btn">•••</button>
+      <button className="icon-btn notification-badge">🔔</button>
       
-      {/* Zvonček / Notifikácie */}
-      <button className="icon-btn notification-badge">
-        🔔
-      </button>
-      
-      {/* Používateľský profil */}
       <div className="user-profile">
         <div className="avatar-circle">{user.initials}</div>
         <span className="user-name">{user.name}</span>

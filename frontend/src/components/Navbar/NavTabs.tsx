@@ -1,6 +1,12 @@
 import React from 'react';
 
-const NavTabs = ({ activeTab, setActiveTab }) => {
+// Toto povie TypeScriptu, aké dáta (Props) komponent očakáva
+interface NavTabsProps {
+  activeTab: string;
+  setActiveTab: (id: string) => void;
+}
+
+const NavTabs = ({ activeTab, setActiveTab }: NavTabsProps) => {
   const tabs = [
     { id: 'nastenka', label: 'Nástěnka' },
     { id: 'zaciname', label: 'Začínáme' },
