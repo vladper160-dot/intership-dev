@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Toto povie TypeScriptu, aké dáta (Props) komponent očakáva
+// Definícia typov pre TypeScript
 interface NavTabsProps {
   activeTab: string;
   setActiveTab: (id: string) => void;

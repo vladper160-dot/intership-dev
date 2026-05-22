@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Definícia, ako vyzerá objekt "user"
+// Definícia typov pre používateľa a props
 interface User {
   name: string;
   initials: string;

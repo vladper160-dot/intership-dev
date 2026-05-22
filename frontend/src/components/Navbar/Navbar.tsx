@@ -4,7 +4,6 @@ import NavUserActions from './NavUserActions';
 import './Navbar.css';
 
 const Navbar = () => {
-  // Povieme TypeScriptu, že activeTab bude vždy string (text)
   const [activeTab, setActiveTab] = useState<string>('zebricek');
   
   const currentUser = {
